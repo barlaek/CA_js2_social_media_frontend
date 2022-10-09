@@ -32,6 +32,9 @@ form.addEventListener('submit', (event) => {
         const accessToken = json.accessToken;
         localStorage.setItem('accessToken', accessToken);
         console.log(accessToken);
+        if(accessToken) {
+            window.location.href='/content-feed.html';
+        }
     }
     loginUser(user);
 })
