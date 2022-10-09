@@ -27,7 +27,7 @@ form.addEventListener('submit', (event) => {
 
         const response = await fetch(`${API_BASE_URL}/api/v1/social/auth/login`, loginOptions);
         console.log(response);
-        const json = response.json();
+        const json = await response.json();
         console.log(json);
     }
     loginUser(user);
