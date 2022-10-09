@@ -28,7 +28,8 @@ async function loginUser(event) {
         const json = await response.json();
         console.log(json);
 
-        const accessToken = localStorage.setItem('accessToken', accessToken);
+        const accessToken = json.accessToken;
+        localStorage.setItem('accessToken', accessToken);
         console.log(accessToken);
 
     } catch(error) {
