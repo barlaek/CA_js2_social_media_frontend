@@ -10,8 +10,8 @@ form.addEventListener('submit', (event) => {
     const form = event.target;
 
     const user = {
-        email: form.userEmail.target,
-        password: form.userPw.target,
+        email: form.userEmail.value,
+        password: form.userPw.value,
     }
 
     console.log(user);
@@ -29,6 +29,9 @@ form.addEventListener('submit', (event) => {
         console.log(response);
         const json = await response.json();
         console.log(json);
+        const accessToken = json.accessToken;
+        localStorage.setItem('accessToken', accessToken);
+        console.log(accessToken);
     }
     loginUser(user);
 })
