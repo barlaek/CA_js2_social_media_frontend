@@ -42,7 +42,7 @@ async function registerUser(event) {
         console.log(response);
         const json = await response.json();
         console.log(json);
-        if(json) {
+        if(!json) {
             window.location.href="/index.html";
         }
     } catch(error) {
