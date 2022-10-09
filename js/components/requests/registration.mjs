@@ -1,6 +1,6 @@
 // Setting the base endpoint
 
-const API_BASE_URL = 'https://nf-api.onrender.com';
+export const API_BASE_URL = 'https://nf-api.onrender.com';
 
 //Register endpoint: /api/v1/social/auth/register
 
@@ -42,7 +42,7 @@ async function registerUser(event) {
         console.log(response);
         const json = await response.json();
         console.log(json);
-        if(!json) {
+        if(json) {
             window.location.href="/index.html";
         }
     } catch(error) {
