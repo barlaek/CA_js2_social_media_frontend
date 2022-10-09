@@ -33,7 +33,7 @@ form.addEventListener('submit', (event) => {
         const json = await response.json();
         console.log(json);
 
-        if(json.status === 200) {
+        if(json.ok) {
             window.location.href='/index.html';
         }
     }
