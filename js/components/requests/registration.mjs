@@ -1,6 +1,6 @@
 // Setting the base endpoint
 
-export const API_BASE_URL = 'https://nf-api.onrender.com';
+const API_BASE_URL = 'https://nf-api.onrender.com';
 
 //Register endpoint: /api/v1/social/auth/register
 

@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "./registration.mjs";
+const API_BASE_URL = 'https://nf-api.onrender.com';
 
 // Endpoint: /api/v1/social/auth/login
 
