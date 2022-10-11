@@ -29,21 +29,27 @@ async function getPosts(url) {
     }
 }
 
-getPosts(`${API_BASE_URL}/api/v1/social/posts/`);
+getPosts(`${API_BASE_URL}/api/v1/social/posts?_author=true&_comments=true&_reactions=true`);
 
 const postsContainer = document.getElementById('feedContainer');
 
 function viewContent(posts) {
-    for(let i = 0; i < i.length; i++) {
-        postsContainer.innerHTML +=
-        `<div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title">${posts[i].title}</h5>
-                <p class="card-text"><p class="card-text">${posts[i].body}</p></p>
-                <p class="card-text"><small class="text-muted">${posts[i].created}</small></p>
+    postsContainer.innerHTML += '';
+
+    if(posts) {
+        posts.map((post) => {
+            let date = new Date(`${post.created}`);
+
+            postsContainer.innerHTML +=
+            `<div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">${post.author.name}</h5>
+                    <p class="card-text"><p class="card-text">${post.body}</p></p>
+                    <p class="card-text"><small class="text-muted">${date}</small></p>
+                </div>
             </div>
-            <img src="..." class="card-img-bottom" alt="...">
-        </div>
-        `
+            `
+        })
     }
+
 }
