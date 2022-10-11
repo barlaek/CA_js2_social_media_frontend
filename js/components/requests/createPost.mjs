@@ -5,6 +5,7 @@ const postEndPoint = `${API_BASE_URL}/api/v1/social/posts/`;
 console.log(postEndPoint);
 
 const form = document.getElementById('postForm');
+const postsContainer = document.getElementById('feedContainer');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
