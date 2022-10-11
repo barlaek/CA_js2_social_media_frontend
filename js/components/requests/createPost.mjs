@@ -4,7 +4,7 @@ const postEndPoint = `${API_BASE_URL}/api/v1/social/posts/`;
 
 console.log(postEndPoint);
 
-const form = document.getElementById('createPost');
+const form = document.getElementById('postForm');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -20,7 +20,7 @@ form.addEventListener('submit', (event) => {
     async function createPost(newPost) {
         try {
 
-            const token  = localStorage.getItem('accessToken');
+        const token  = localStorage.getItem('accessToken');
 
         const postOptions = {
             method: 'POST',

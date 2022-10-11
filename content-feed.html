@@ -85,7 +85,7 @@
               <form class="card mb-4 mt-4 d-flex" id="postForm">
                 <div class="card-body row">
                   <h5 class="card-title">Status</h5>
-                  <input id="newPost" class="form-control col text-muted" type="text" value="What are you thinking about?" aria-label="readonly input example" readonly>
+                  <input id="newPost" class="form-control col text-muted" type="text" aria-label="readonly input example">
                   <button type="button" class="btn btn-warning col-2" id="createPost">Submit</button>
                 </div>
               </form>
@@ -209,7 +209,7 @@
         </div>
     </main>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/components/requests/createPost.mjs"></script>
     <script type="module" src="/js/components/requests/viewFeed.mjs"></script>
+    <script src="/js/components/requests/createPost.mjs"></script>
 </body>
 </html>
