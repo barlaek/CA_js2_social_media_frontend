@@ -2,6 +2,8 @@ const API_BASE_URL = 'https://nf-api.onrender.com';
 
 // Endpoint: /api/v1/social/posts/
 
+const viewFeedEndPoint = `${API_BASE_URL}/api/v1/social/posts?_author=true&_comments=true&_reactions=true`;
+
 async function getPosts(url) {
 
     const token = localStorage.getItem('accessToken');
@@ -29,7 +31,7 @@ async function getPosts(url) {
     }
 }
 
-getPosts(`${API_BASE_URL}/api/v1/social/posts?_author=true&_comments=true&_reactions=true`);
+getPosts(viewFeedEndPoint);
 
 const postsContainer = document.getElementById('feedContainer');
 

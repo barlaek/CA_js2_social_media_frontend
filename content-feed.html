@@ -82,13 +82,13 @@
               <div class="mt-4">
                 <h1>Newsfeed</h1>
               </div>
-              <div class="card mb-4 mt-4 d-flex">
+              <form class="card mb-4 mt-4 d-flex" id="postForm">
                 <div class="card-body row">
                   <h5 class="card-title">Status</h5>
-                  <input class="form-control col text-muted" type="text" value="What are you thinking about?" aria-label="readonly input example" readonly>
-                  <button type="button" class="btn btn-warning col-2">Submit</button>
+                  <input id="newPost" class="form-control col text-muted" type="text" value="What are you thinking about?" aria-label="readonly input example" readonly>
+                  <button type="button" class="btn btn-warning col-2" id="createPost">Submit</button>
                 </div>
-              </div>
+              </form>
               <hr>
               <div id="feedContainer">
 
@@ -209,6 +209,7 @@
         </div>
     </main>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/components/requests/createPost.mjs"></script>
     <script type="module" src="/js/components/requests/viewFeed.mjs"></script>
 </body>
 </html>
