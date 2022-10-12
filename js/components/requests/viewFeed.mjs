@@ -1,4 +1,7 @@
-const API_BASE_URL = 'https://nf-api.onrender.com';
+
+import { API_BASE_URL } from "./api.mjs";
+
+// const API_BASE_URL = 'https://nf-api.onrender.com';
 
 // Endpoint: /api/v1/social/posts/
 
