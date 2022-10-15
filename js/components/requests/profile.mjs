@@ -51,7 +51,7 @@ async function getSingleProfile(name) {
             },
         };
 
-        const response = await fetch(`${singleProfile}?_posts=true&_following=true&_followers=true`, options);
+        const response = await fetch(`${singleProfile}`, options);
         console.log(response)
         const json = await response.json();
         console.log(json)
@@ -68,7 +68,7 @@ function getFriends(name) {
     if(name) {
         name.map((name) => {
             friends.innerHTML += `
-            <a href="profile.html/${name.name}?_posts=true&_following=true&_followers=true" class="list-group-item list-group-item-action py-3 lh-sm">
+            <a href="profile.html/${name.name}" class="list-group-item list-group-item-action py-3 lh-sm">
                 <div class="d-flex w-100 align-items-center justify-content-between">
                     <strong class="mb-1">${name.name}</strong>
                 </div>

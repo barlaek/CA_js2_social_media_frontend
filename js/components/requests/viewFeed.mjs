@@ -11,7 +11,7 @@ async function getPosts(url) {
 
     const token = localStorage.getItem('accessToken');
 
-    console.log(token);
+    // console.log(token);
 
     const getOptions = {
         method: 'GET',
@@ -23,9 +23,9 @@ async function getPosts(url) {
 
     try{
         const response = await fetch(url, getOptions)
-        console.log(response);
+        // console.log(response);
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         if(response.ok) {
             viewContent(json);
         }
