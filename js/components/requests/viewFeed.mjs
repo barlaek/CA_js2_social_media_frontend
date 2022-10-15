@@ -36,9 +36,9 @@ async function getPosts(url) {
 
 getPosts(viewFeedEndPoint);
 
-const postsContainer = document.getElementById('feedContainer');
+export const postsContainer = document.getElementById('feedContainer');
 
-function viewContent(posts) {
+export function viewContent(posts) {
     postsContainer.innerHTML += '';
 
     if(posts) {

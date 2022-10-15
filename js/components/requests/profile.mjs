@@ -1,5 +1,6 @@
 
 import { profilesUrl } from "./api.mjs";
+import { viewContent, postsContainer } from "./viewFeed.mjs";
 
 const friends = document.getElementById('friendsOnline');
 const idCard = document.getElementById('idCard');
@@ -8,39 +9,7 @@ const profilePosts = document.getElementById('profilePosts');
 
 async function getAllProfiles() {
     try {
-        const token = localStorage.getItem('accessToken')
-
-        const options = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
-            },
-        };
-
-        const response = await fetch(`${profilesUrl}`, options);
-        console.log(response);
-        const json = await response.json();
-        console.log(json);
-
-        if(response.ok) {
-            getFriends(json);
-            getSingleProfile(json);
-        }
-
-
-    } catch(error) {
-        console.log(error)
-    }
-}
-
-getAllProfiles();
-
-async function getSingleProfile(name) {
-    try{
-
-        const singleProfile = `${profilesUrl}?name=${name.name}`;
-
+        const singleProfile = `${profilesUrl}?name=${name}_posts=true&_following=true&_followers=true`;
         const token = localStorage.getItem('accessToken')
 
         const options = {
@@ -52,22 +21,55 @@ async function getSingleProfile(name) {
         };
 
         const response = await fetch(`${singleProfile}`, options);
-        console.log(response)
+        console.log(response);
         const json = await response.json();
-        console.log(json)
+        console.log(json);
 
         if(response.ok) {
-            getDetails(json)
+            getFriends(json);
+            getSingleProfile(json);
+            getDetails(json);
+            viewContent(json);
         }
 
-        // if(response.ok) {
-        //     getDetails(json)
-        // }
 
     } catch(error) {
         console.log(error)
     }
 }
+
+getAllProfiles();
+
+// async function getSingleProfile(name) {
+//     try{
+
+//         const singleProfile = `${profilesUrl}?name=${name.name}_posts=true&_following=true&_followers=true`;
+
+//         const token = localStorage.getItem('accessToken')
+
+//         const options = {
+//             method: 'GET',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 Authorization: `Bearer ${token}`,
+//             },
+//         };
+
+//         const response = await fetch(`${singleProfile}`, options);
+//         console.log(response)
+//         const json = await response.json();
+//         console.log(json)
+
+//         if(response.ok) {
+//             getDetails(json);
+//             viewContent(json);
+//         }
+
+//     } catch(error) {
+//         console.log(error)
+//     }
+// }
+
 
 function getFriends(name) {
 
