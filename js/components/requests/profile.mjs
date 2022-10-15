@@ -5,6 +5,10 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const name = params.get('name');
 
+for (const paramaters of params) {
+    console.log(paramaters);
+}
+
 const friends = document.getElementById('friendsOnline');
 
 async function getAllProfiles() {
