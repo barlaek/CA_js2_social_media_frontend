@@ -46,7 +46,7 @@ export function viewContent(posts) {
             let date = new Date(`${post.created}`);
 
             postsContainer.innerHTML +=
-            `<a class="card mb-4" href="singlePost.html?id=${post.id}">
+            `<a class="card mb-4 text-decoration-none text-reset" href="singlePost.html?id=${post.id}">
                 <div class="card-body">
                     <h5 class="card-title">${post.author.name}</h5>
                     <p class="card-text"><p class="card-text">${post.body}</p></p>
