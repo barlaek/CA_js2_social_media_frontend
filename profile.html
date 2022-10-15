@@ -35,8 +35,8 @@
         <div class="row">
   
           <!-- Profile card-->
-          <div class="col-4">
-            <div class="card mt-4">
+          <div class="col-4" id="idCard">
+            <!-- <div class="card mt-4">
               <img src="images/profil.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Name Names</h5>
@@ -44,7 +44,7 @@
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor bibendum ipsum ac tincidunt.</p>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor bibendum ipsum ac tincidunt.</p>
               </div>
-            </div>
+            </div> -->
           </div>
     
             <!-- Profile feed -->
@@ -56,7 +56,10 @@
                   <button type="button" class="btn btn-warning col-2">Submit</button>
                 </div>
               </div>
-              <div class="card mb-4">
+              <div class="card mb-4" id="profilePosts">
+
+              </div>
+              <!-- <div class="card mb-4">
                 <div class="card-body">
                   <h5 class="card-title">Post</h5>
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor bibendum ipsum ac tincidunt.</p>
@@ -87,11 +90,12 @@
                   <p class="card-text"><small class="text-muted">Last updated 3 weeks ago</small></p>
                 </div>
                 <img src="..." class="card-img-bottom" alt="...">
-              </div>
+              </div> -->
             </div>
         </div>
     </main>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/js/components/requests/profile.mjs" type="module"></script>
+    <script type="module" src="/js/components/requests/viewFeed.mjs"></script>
 </body>
 </html>

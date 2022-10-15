@@ -1,12 +1,10 @@
 
 import { profilesUrl } from "./api.mjs";
 
-const queryString = document.location.search;
-const params = new URLSearchParams(queryString);
-const name = params.get('id');
-
-
 const friends = document.getElementById('friendsOnline');
+const idCard = document.getElementById('idCard');
+const profilePosts = document.getElementById('profilePosts');
+
 
 async function getAllProfiles() {
     try {
@@ -41,7 +39,7 @@ getAllProfiles();
 async function getSingleProfile(name) {
     try{
 
-        const singleProfile = `${profilesUrl}/${name.name}`;
+        const singleProfile = `${profilesUrl}?name=${name.name}`;
 
         const token = localStorage.getItem('accessToken')
 
@@ -57,6 +55,14 @@ async function getSingleProfile(name) {
         console.log(response)
         const json = await response.json();
         console.log(json)
+
+        if(response.ok) {
+            getDetails(json)
+        }
+
+        // if(response.ok) {
+        //     getDetails(json)
+        // }
 
     } catch(error) {
         console.log(error)
@@ -77,4 +83,23 @@ function getFriends(name) {
             </a>`
         });
     }
+}
+
+function getDetails(data) {
+    idCard.innerHTML += '';
+        if(data) {
+            data.map((data) => {
+                idCard.innerHTML +=
+                    `<div class="card mt-4">
+                        <img src="images/profil.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">${data.name}</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor bibendum ipsum ac tincidunt.</p>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor bibendum ipsum ac tincidunt.</p>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor bibendum ipsum ac tincidunt.</p>
+                        </div>
+                    </div>
+                    `
+            })
+        }
 }
