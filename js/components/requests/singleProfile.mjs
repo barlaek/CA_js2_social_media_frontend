@@ -1,4 +1,5 @@
 import { profilesUrl } from "./api.mjs";
+import { profileOptions } from "../utilities/localStorage.mjs";
 
 const idCard = document.getElementById('idCard');
 const profilePosts = document.getElementById('profilePosts');
@@ -16,16 +17,6 @@ console.log(url);
 
 async function getSingleProfile() {
     try {
-        const token = localStorage.getItem('accessToken');
-
-        const profileOptions = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/js',
-                Authorization: `Bearer ${token}`,
-            },
-        }
-
         const response = await fetch(url, profileOptions);
         const json = await response.json();
         console.log(json);
@@ -40,6 +31,22 @@ async function getSingleProfile() {
 
 getSingleProfile();
 
+async function getProfilePosts() {
+    try{
+        const response = await fetch(`${url}?_posts=true&_following=true&_followers=true`, profileOptions);
+        const json = await response.json();
+        console.log(json);
+
+        if(response.ok) {
+            getPosts(json);
+        }
+    } catch(error) {
+        console.log
+    }
+}
+
+getProfilePosts();
+
 function getDetails(data) {
         idCard.innerHTML +=
             `<div class="card mt-4">
@@ -51,5 +58,17 @@ function getDetails(data) {
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor bibendum ipsum ac tincidunt.</p>
                 </div>
             </div>
+        `
+}
+
+function getPosts(posts) {
+    profilePosts.innerHTML += 
+        `<div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">${posts.title}</h5>
+                <p class="card-text"><p class="card-text">${posts.body}</p></p>
+                <p class="card-text"><small class="text-muted">${posts.created}</small></p>
+            </div>
+        </div>
         `
 }
