@@ -103,7 +103,11 @@
               <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
               <span class="fs-5 fw-semibold">Friends online</span>
             </a>
-            <div class="list-group list-group-flush border-bottom scrollarea">
+            <div class="list-group list-group-flush border-bottom scrollarea" id="friendsOnline">
+
+            </div>
+            
+            <!-- <div class="list-group list-group-flush border-bottom scrollarea">
               <a href="#" class="list-group-item list-group-item-action active py-3 lh-sm" aria-current="true">
                 <div class="d-flex w-100 align-items-center justify-content-between">
                   <strong class="mb-1">Lorem Ipsum</strong>
@@ -164,11 +168,12 @@
                   <small class="text-muted">Offline</small>
                 </div>
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
     </main>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/js/components/requests/profile.mjs"></script>
     <script tpye="module" src="/js/components/requests/createPost.mjs"></script>
     <script type="module" src="/js/components/requests/viewFeed.mjs"></script>
 </body>

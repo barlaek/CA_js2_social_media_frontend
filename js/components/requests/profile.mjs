@@ -5,6 +5,8 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const name = params.get('name');
 
+const friends = document.getElementById('friendsOnline');
+
 async function getAllProfiles() {
     try {
         const token = localStorage.getItem('accessToken')
@@ -21,6 +23,10 @@ async function getAllProfiles() {
         console.log(response);
         const json = await response.json();
         console.log(json);
+
+        if(response.ok) {
+            getFriends(json);
+        }
 
         getSingleProfile(json[1]);
     } catch(error) {
@@ -52,5 +58,21 @@ async function getSingleProfile(name) {
 
     } catch(error) {
         console.log(error)
+    }
+}
+
+function getFriends(name) {
+
+    friends.innerHTML += '';
+
+    if(name) {
+        name.map((name) => {
+            friends.innerHTML += `
+            <a href="#" class="list-group-item list-group-item-action active py-3 lh-sm">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">${name.name}</strong>
+                </div>
+            </a>`
+        });
     }
 }
