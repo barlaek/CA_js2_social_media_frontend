@@ -25,7 +25,7 @@ async function getPosts(url) {
         const response = await fetch(url, getOptions)
         // console.log(response);
         const json = await response.json();
-        // console.log(json);
+        console.log(json);
         if(response.ok) {
             viewContent(json);
         }
@@ -46,13 +46,13 @@ export function viewContent(posts) {
             let date = new Date(`${post.created}`);
 
             postsContainer.innerHTML +=
-            `<div class="card mb-4">
+            `<a class="card mb-4" href="singlePost.html?id=${post.id}">
                 <div class="card-body">
                     <h5 class="card-title">${post.author.name}</h5>
                     <p class="card-text"><p class="card-text">${post.body}</p></p>
                     <p class="card-text"><small class="text-muted">${date}</small></p>
                 </div>
-            </div>
+            </a>
             `
         })
     }

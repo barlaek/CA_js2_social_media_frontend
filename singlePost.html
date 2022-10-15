@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/dist/css/styles.css">
 </head>
 <body>
     <header class="p-3 text-bg-dark">
@@ -31,6 +32,69 @@
         </div>
     </header>
 
+    <main>
+
+        <div class="row">
+            <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark col-1" style="width: 280px;">
+              <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                <span class="fs-4">Name Nameson</span>
+              </a>
+              <hr>
+              <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                  <a href="#" class="nav-link active" aria-current="page">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link text-white">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+                    Albums/Pictures
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link text-white">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                    Stories
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link text-white">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+                    Events
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link text-white">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                    Friends
+                  </a>
+                </li>
+              </ul>
+              <hr>
+            </div>
+
+        <div id="singPost" class="col-8 mt-5">
+
+        </div>
+
+        <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white col" style="width: 380px;">
+            <a href="/" class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+              <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+              <span class="fs-5 fw-semibold">Friends online</span>
+            </a>
+
+            <div class="list-group list-group-flush border-bottom scrollarea" id="friendsOnline">
+
+            </div>
+          </div>
+        </div>
+    </main>
+
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/js/components/requests/getProfiles.mjs"></script>
+    <script type="module" src="/js/components/requests/singlePost.mjs"></script>
 </body>
 </html>
