@@ -17,8 +17,6 @@ form.addEventListener('submit', (event) => {
         password: form.newPw.value,
     }
 
-    console.log(newUser);
-
     async function registerUser(newUser) {
         const postOptions = {
             method: 'POST',
@@ -31,7 +29,7 @@ form.addEventListener('submit', (event) => {
         const response = await fetch(`${API_BASE_URL}/api/v1/social/auth/register`, postOptions);
         const json = await response.json();
 
-        if(response.ok) {
+        if(json) {
             window.location.href='/index.html';
         }
     }

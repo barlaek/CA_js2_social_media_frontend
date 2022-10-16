@@ -1,7 +1,6 @@
 
 import { postsURL } from "./api.mjs";
 
-// const viewFeedEndPoint = `${postsURL}/?_author=true&_comments=true&_reactions=true`;
 const token = localStorage.getItem('accessToken');
 const getOptions = {
     method: 'GET',
@@ -15,7 +14,7 @@ const search = document.getElementById('search');
 
 let posts = [];
 
-search.addEventListener('input', (event) => {
+search.addEventListener('keyup', (event) => {
     const searchString = event.target.value.toLowerCase();
     const filteredPosts = posts.filter((post) => {
         return (post.title.toString().toLowerCase().includes(searchString))
