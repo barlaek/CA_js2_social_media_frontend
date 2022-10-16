@@ -15,9 +15,9 @@ const search = document.getElementById('search');
 
 let posts = [];
 
-search.addEventListener('keyup', (event) => {
+search.addEventListener('input', (event) => {
     const searchString = event.target.value.toLowerCase();
-    const filteredPosts = posts.map((post) => {
+    const filteredPosts = posts.filter((post) => {
         return (post.title.toString().toLowerCase().includes(searchString))
         });
     viewContent(filteredPosts);
@@ -29,8 +29,6 @@ async function getPosts(url) {
         const response = await fetch(url, getOptions)
         posts = await response.json();
         viewContent(posts);
-
-        console.log(response);
     } catch(error) {
         console.log(error)
     }

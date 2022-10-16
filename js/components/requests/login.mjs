@@ -26,12 +26,9 @@ form.addEventListener('submit', (event) => {
         };
 
         const response = await fetch(`${API_BASE_URL}/api/v1/social/auth/login`, loginOptions);
-        console.log(response);
         const json = await response.json();
-        console.log(json);
         const accessToken = json.accessToken;
         localStorage.setItem('accessToken', accessToken);
-        console.log(accessToken);
         if(accessToken) {
             window.location.href='/content-feed.html';
         }

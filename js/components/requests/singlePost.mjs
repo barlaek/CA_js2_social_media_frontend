@@ -10,19 +10,13 @@ const id = params.get('id');
 
 const url = `${postsURL}/${id}`;
 
-console.log(url);
-
 async function getSinglePost() {
     try {
-
         const response = await fetch(url, profileOptions);
-        console.log(response);
         const json = await response.json();
-        console.log(json);
 
         if(response.ok) {
             displayPost(json);
-            // updatePost(json);
         }
     } catch(error) {
         console.log(error)
@@ -78,9 +72,7 @@ async function updatePost(data) {
         };
 
         const response = await fetch(url, updateOptions);
-        console.log(response);
         const json = await response.json();
-        console.log(json);
 
     } catch(error) {
         console.log(error)
@@ -99,9 +91,7 @@ async function deletePost() {
         };
 
         const response = await fetch(url, updateOptions);
-        console.log(response);
         const json = await response.json();
-        console.log(json);
 
     } catch(error) {
         console.log(error)

@@ -29,9 +29,7 @@ form.addEventListener('submit', (event) => {
         };
 
         const response = await fetch(`${API_BASE_URL}/api/v1/social/auth/register`, postOptions);
-        console.log(response);
         const json = await response.json();
-        console.log(json);
 
         if(response.ok) {
             window.location.href='/index.html';

@@ -18,9 +18,7 @@ async function getAllProfiles() {
         };
 
         const response = await fetch(`${profilesUrl}`, options);
-        console.log(response);
         const profiles = await response.json();
-        console.log(profiles);
 
         profiles.forEach(function(profile) {
             friends.innerHTML += 
