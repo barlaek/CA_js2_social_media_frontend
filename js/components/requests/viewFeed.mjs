@@ -17,9 +17,9 @@ let posts = [];
 
 search.addEventListener('keyup', (event) => {
     const searchString = event.target.value.toLowerCase();
-    const filteredPosts = posts.filter(post => {
-        return (post.title.toLowerCase().includes(searchString) || post.owner.toLowerCase().includes(search))
-    });
+    const filteredPosts = posts.map((post) => {
+        return (post.title.toString().toLowerCase().includes(searchString))
+        });
     viewContent(filteredPosts);
 })
 
@@ -28,9 +28,7 @@ async function getPosts(url) {
     try{
         const response = await fetch(url, getOptions)
         posts = await response.json();
-        if(response.ok) {
-            viewContent(posts);
-        }
+        viewContent(posts);
 
         console.log(response);
     } catch(error) {
@@ -38,7 +36,7 @@ async function getPosts(url) {
     }
 }
 
-getPosts(postsURL);
+getPosts(`${postsURL}/`);
 
 export function viewContent(posts) {
     postsContainer.innerHTML += '';
@@ -47,7 +45,7 @@ export function viewContent(posts) {
         posts.map((post) => {
             let date = new Date(`${post.created}`);
 
-            postsContainer.innerHTML +=
+            return postsContainer.innerHTML +=
             `<a class="card mb-4 text-decoration-none text-reset" href="singlePost.html?id=${post.id}">
                 <div class="card-body">
                     <h5 class="card-title">${post.title}</h5>
