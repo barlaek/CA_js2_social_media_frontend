@@ -11,6 +11,7 @@ const getOptions = {
 };
 export const postsContainer = document.getElementById('feedContainer');
 const search = document.getElementById('search');
+const filterButton = document.getElementById('filter');
 
 let posts = [];
 
@@ -19,7 +20,15 @@ search.addEventListener('keyup', (event) => {
     const filteredPosts = posts.filter((post) => {
         return (post.title.toString().toLowerCase().includes(searchString))
         });
+    console.log(filteredPosts);
     viewContent(filteredPosts);
+})
+
+filterButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    const newest = posts.filter(post => post.id >= 7500)
+    console.log(newest);
+    viewContent(newest);
 })
 
 async function getPosts(url) {
