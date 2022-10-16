@@ -48,7 +48,7 @@ export function viewContent(posts) {
     postsContainer.innerHTML += '';
 
     if(posts) {
-        posts.map((post) => {
+        posts.forEach(post => {
             let date = new Date(`${post.created}`);
 
             return postsContainer.innerHTML +=
@@ -58,8 +58,7 @@ export function viewContent(posts) {
                     <p class="card-text"><p class="card-text">${post.body}</p></p>
                     <p class="card-text"><small class="text-muted">${date}</small></p>
                 </div>
-            </a>
-            `
+            </a>`
         })
     }
 }
