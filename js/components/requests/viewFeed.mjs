@@ -5,7 +5,7 @@ const viewFeedEndPoint = `${postsURL}/?_author=true&_comments=true&_reactions=tr
 
 const token = localStorage.getItem('accessToken');
 
-let posts = [];
+export const postsContainer = document.getElementById('feedContainer');
 
 const getOptions = {
     method: 'GET',
@@ -25,6 +25,19 @@ async function getPosts(url) {
         if(response.ok) {
             viewContent(json);
         }
+
+        const search = document.getElementById('search');
+
+        let postsContainer = []
+
+        search.addEventListener('input', (event) => {
+            const value = event.target.value.toLowerCase();
+            postsContainer.forEach(post => {
+                const isVisible = post.id.toLowerCase().includes(value) || post.author.name.toLowerCase().includes(value);
+                post.element.classList.toggle('hide', !isVisible);
+            })
+            console.log(value)
+    })
     } catch(error) {
         console.log(error)
     }
@@ -32,7 +45,6 @@ async function getPosts(url) {
 
 getPosts(viewFeedEndPoint);
 
-export const postsContainer = document.getElementById('feedContainer');
 
 export function viewContent(posts) {
     postsContainer.innerHTML += '';
@@ -53,27 +65,3 @@ export function viewContent(posts) {
         })
     }
 }
-
-const searchForm = document.getElementById('searchForm');
-const search = document.getElementById('search');
-
-search.addEventListener('input', (event) => {
-    const value = event.target.value.toLowerCase();
-    posts.forEach(post => {
-        const isVisible = post.id.toLowerCase().includes(value) || post.author.name.toLowerCase().includes(value);
-        post.element.classList.toggle('hide', !isVisible);
-    })
-})
-
-async function searchPosts() {
-    try {
-        const response = await fetch(postsURL, getOptions);
-        console.log(response)
-        const json = await response.json();
-
-    } catch(error) {
-        console.log(error);
-    }
-}
-
-searchPosts();
