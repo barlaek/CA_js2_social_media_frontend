@@ -5,6 +5,10 @@ const postFeedEndPoint = `${API_BASE_URL}/api/v1/social/posts`;
 
 const form = document.getElementById('postForm');
 
+/**
+ * Submit event for creating posts
+ */
+
 form.addEventListener('submit', (event ) => {
     event.preventDefault();
 
@@ -22,6 +26,12 @@ form.addEventListener('submit', (event ) => {
     }
     form.reset();
 });
+
+/**
+ * Function that creates a post. We pass in the
+ * @param {postObject} postObject from the form event and it
+ * @returns json
+ */
 
 async function createPost(postObject) {
     try {

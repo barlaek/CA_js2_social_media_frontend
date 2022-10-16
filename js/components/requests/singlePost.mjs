@@ -10,6 +10,10 @@ const id = params.get('id');
 
 const url = `${postsURL}/${id}`;
 
+/**
+ * Function that GETS the endpoint
+ */
+
 async function getSinglePost() {
     try {
         const response = await fetch(url, profileOptions);
@@ -24,6 +28,11 @@ async function getSinglePost() {
 }
 
 getSinglePost();
+
+/**
+ * Populates the DOM
+ * @param {endpoint} post 
+ */
 
 function displayPost(post) {
     singPost.innerHTML +=
@@ -42,6 +51,10 @@ function displayPost(post) {
 
 const form = document.getElementById('singPost');
 
+/**
+ * Form event that updates a post
+ */
+
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     const form = event.target;
@@ -58,6 +71,11 @@ form.addEventListener('submit', (event) => {
 
     form.reset();
 });
+
+/**
+ * Function that updates a post. Takes one parameter that we pass the
+ * @param {newUpdate} data from the form event into
+ */
 
 async function updatePost(data) {
     try {
@@ -78,6 +96,10 @@ async function updatePost(data) {
         console.log(error)
     }
 }
+
+/**
+ * Function that deletes a post
+ */
 
 async function deletePost() {
     try {

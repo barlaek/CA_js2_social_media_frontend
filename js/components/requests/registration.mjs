@@ -1,8 +1,13 @@
-// Setting the base endpoint
+/**
+ * Form submission. Takes one
+ * @param {event} and targets the values of the form
+ * for the following function that posts to the registration endpoint.
+ * registerUser takes one
+ * @param {newUser} and we pass the form values into the newUser parameter to register the account
+ * 
+ */
 
 const API_BASE_URL = 'https://nf-api.onrender.com';
-
-//Register endpoint: /api/v1/social/auth/register
 
 const form = document.getElementById('regForm');
 

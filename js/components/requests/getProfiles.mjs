@@ -3,6 +3,10 @@ import { profilesUrl } from "./api.mjs";
 
 const friends = document.getElementById('friendsOnline');
 
+/**
+ * Function that populates the DOM with profiles
+ */
+
 async function getAllProfiles() {
     try {
         const token = localStorage.getItem('accessToken')

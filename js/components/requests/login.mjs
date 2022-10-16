@@ -1,8 +1,16 @@
 const API_BASE_URL = 'https://nf-api.onrender.com';
 
-// Endpoint: /api/v1/social/auth/login
-
 const form = document.getElementById('logForm');
+
+/**
+ * Attaches eventListener to the button
+ * @param {event} takes an event param
+ * 
+ * Posts the data to the server, also taking a
+ * @param {user}
+ * 
+ * Sets the accessToken to localStorage and redirects the user
+ */
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();

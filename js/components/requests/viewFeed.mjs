@@ -15,6 +15,12 @@ const filterButton = document.getElementById('filter');
 
 let posts = [];
 
+/**
+ * search function that takes one param
+ * @param {event} attached to a keyup. Filters the target
+ * taking a @param {post} parameter
+ */
+
 search.addEventListener('keyup', (event) => {
     const searchString = event.target.value.toLowerCase();
     const filteredPosts = posts.filter((post) => {
@@ -24,12 +30,24 @@ search.addEventListener('keyup', (event) => {
     viewContent(filteredPosts);
 })
 
+/**
+ * Similar to the search function.
+ * Takes an @param {event} parameter and filters through
+ * @param {post} parameter that we pass into the viewContent function
+ */
+
 filterButton.addEventListener('click', (event) => {
     event.preventDefault();
     const newest = posts.filter(post => post.id >= 7500)
     console.log(newest);
     viewContent(newest);
 })
+
+/**
+ * Async function that takes one
+ * @param {url} for a fetch request that takes two
+ * @param {url} @param {getOptions} parameters 
+ */
 
 async function getPosts(url) {
 
@@ -43,6 +61,11 @@ async function getPosts(url) {
 }
 
 getPosts(`${postsURL}/`);
+
+/**
+ * This function populates the DOM when we pass in
+ * @param {endpoint} posts 
+ */
 
 export function viewContent(posts) {
     postsContainer.innerHTML += '';
