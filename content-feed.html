@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/dist/css/styles.css">
+</head>
+<body>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="content-feed.html" class="nav-link px-2 text-white">Home</a></li>
+              <li><a href="profile.html" class="nav-link px-2 text-white">Profile</a></li>
+            </ul>
+    
+            <form id="searchForm" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+              <input id="search" type="text" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+            </form>
+    
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2"><a href="index.html" class="text-white text-decoration-none">Login</a></button>
+              <button type="button" class="btn btn-warning">Logout</button>
+            </div>
+          </div>
+        </div>
+    </header>
+    <main>
+        <!-- Dashboard sidebar -->
+      <div class="row">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark col-1" style="width: 280px;">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            <span class="fs-4">Name Nameson</span>
+          </a>
+          <hr>
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" aria-current="page">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+                Albums/Pictures
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                Stories
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+                Events
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Friends
+              </a>
+            </li>
+          </ul>
+          <hr>
+        </div>
+
+        <!-- Newsfeed -->
+
+        <div class="col-8">
+            <div>
+              <div class="mt-4">
+                <h1>Newsfeed</h1>
+              </div>
+              <form class="card mb-4 mt-4 d-flex" id="postForm">
+                <div class="card-body row">
+                  <h5 class="card-title">Status</h5>
+                  <input id="newPost" class="form-control col text-muted" type="text" placeholder="What's on your mind?">
+                  <button type="submit" class="btn btn-warning col-2" id="createPost">Submit</button>
+                </div>
+                <button type="button" class="btn btn-warning col-2 mb-2" id="filter">Filter</button>
+              </form>
+              <hr>
+              <div id="feedContainer">
+
+              </div>
+            </div>
+          </div>
+
+          <!-- List of contacts -->
+
+        <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white col" style="width: 380px;">
+            <a href="/" class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+              <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+              <span class="fs-5 fw-semibold">Friends online</span>
+            </a>
+
+            <div class="list-group list-group-flush border-bottom scrollarea" id="friendsOnline">
+
+            </div>
+          </div>
+        </div>
+    </main>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/js/components/utilities/profileLink.mjs"></script>
+    <script type="module" src="/js/components/requests/getProfiles.mjs"></script>
+    <script tpye="module" src="/js/components/requests/createPost.mjs"></script>
+    <script type="module" src="/js/components/requests/viewFeed.mjs"></script>
+</body>
+</html>
