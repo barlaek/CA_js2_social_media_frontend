@@ -68,7 +68,8 @@ function displayPost(post) {
             <p class="card-text"><p class="card-text">${post.body}</p></p>
             <p class="card-text"><small class="text-muted">${post.created}</small></p>
             <input id="update" class="form-control col text-muted" type="text" placeholder="Update post">
-            <button type="submit" class="btn btn-warning col-2" id="updatePost">Update</button>
+            <button type="submit" class="btn btn-warning col-2 mt-2" id="updatePost">Update post</button>
+            <button type="submit" class="btn btn-warning col-2 mt-2" id="deletePost">Delete post</button>
         </div>
     </div>
     `
@@ -85,10 +86,10 @@ form.addEventListener('submit', (event) => {
         body: form.update.value,
     };
 
-    if(updatePost(newUpdate)){
-        // setTimeout(() => {
-        //     window.location.reload();
-        // }, 2000);
+    if(updatePost(newUpdate) || deletePost()){
+        setTimeout(() => {
+            window.location.reload();
+        }, 2000);
     };
 
     form.reset();
@@ -104,6 +105,27 @@ async function updatePost(data) {
                 Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify(data),
+        };
+
+        const response = await fetch(url, updateOptions);
+        console.log(response);
+        const json = await response.json();
+        console.log(json);
+
+    } catch(error) {
+        console.log(error)
+    }
+}
+
+async function deletePost() {
+    try {
+        
+        const updateOptions = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+                Authorization: `Bearer ${token}`,
+            },
         };
 
         const response = await fetch(url, updateOptions);
