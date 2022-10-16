@@ -31,35 +31,6 @@ async function getSinglePost() {
 
 getSinglePost();
 
-// async function updatePost(data) {
-//     try {
-
-//         const upDateBody = {
-//             title: data.title,
-//             body: data.body,
-//         };
-
-//         const updateOptions = {
-//             method: 'PUT',
-//             header: {
-//                 'Content-Type': 'application/json',
-//                 Authorization: `Bearer ${token},`
-//             },
-//             body: JSON.stringify(upDateBody),
-//         };
-
-//         const response = await fetch(url, updateOptions);
-//         console.log(response);
-//         const json = await response.json();
-//         console.log(json);
-
-//     } catch(error) {
-//         console.log(error)
-//     }
-
-// }
-
-
 function displayPost(post) {
     singPost.innerHTML +=
     `<div class="card mb-4" id="updateForm">
@@ -76,7 +47,6 @@ function displayPost(post) {
 }
 
 const form = document.getElementById('singPost');
-
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();

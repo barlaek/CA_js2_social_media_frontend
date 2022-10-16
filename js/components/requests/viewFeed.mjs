@@ -1,25 +1,21 @@
 
-import { API_BASE_URL } from "./api.mjs";
+import { postsURL } from "./api.mjs";
 
-// const API_BASE_URL = 'https://nf-api.onrender.com';
+const viewFeedEndPoint = `${postsURL}/?_author=true&_comments=true&_reactions=true`;
 
-// Endpoint: /api/v1/social/posts/
+const token = localStorage.getItem('accessToken');
 
-const viewFeedEndPoint = `${API_BASE_URL}/api/v1/social/posts?_author=true&_comments=true&_reactions=true`;
+let posts = [];
+
+const getOptions = {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+    },
+};
 
 async function getPosts(url) {
-
-    const token = localStorage.getItem('accessToken');
-
-    // console.log(token);
-
-    const getOptions = {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-        },
-    };
 
     try{
         const response = await fetch(url, getOptions)
@@ -58,3 +54,26 @@ export function viewContent(posts) {
     }
 }
 
+const searchForm = document.getElementById('searchForm');
+const search = document.getElementById('search');
+
+search.addEventListener('input', (event) => {
+    const value = event.target.value.toLowerCase();
+    posts.forEach(post => {
+        const isVisible = post.id.toLowerCase().includes(value) || post.author.name.toLowerCase().includes(value);
+        post.element.classList.toggle('hide', !isVisible);
+    })
+})
+
+async function searchPosts() {
+    try {
+        const response = await fetch(postsURL, getOptions);
+        console.log(response)
+        const json = await response.json();
+
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+searchPosts();
